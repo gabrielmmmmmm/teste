@@ -39,12 +39,35 @@
         <input type="text" name="assunto" class="campos">
         <br><br>
 
-        <label for="menssagem">Posso ajudalo com o que:</label>
+        <label for="menssagem">Como posso ajudalo?</label>
         <br>
         <textarea class="campos" name="menssagem" required></textarea>
         <br><br>
 
         <button type="submit" id="botao">Enviar</button>
     </form> 
+    <script type="text/javascript">
+        const btn = document.getElementById('botao');
+
+        document.getElementById('contact-form')
+        .addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            btn.value = 'Enviando...';
+
+            const serviceID = 'service_822u1bm';
+            const templateID = 'template_zljgvvq';
+
+            emailjs.sendForm(serviceID, templateID, this)
+            .then(() => {
+                btn.value = 'Enviar';
+                alert('Mensagem enviada com sucesso!');
+                this.reset();
+            }, (err) => {
+                btn.value = 'Enviar';
+                alert('Erro ao enviar: ' + JSON.stringify(err));
+            });
+        });
+    </script>
 </body>
 </html>
