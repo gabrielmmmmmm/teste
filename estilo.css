@@ -1,6 +1,6 @@
 form{
     background-color: #ED1C24;
-    width: 70%;
+    width: 50%;
     display: block;
     margin: auto;
     text-align: center;
@@ -11,12 +11,15 @@ form{
     font-family: 'Roboto', sans-serif;
 }
 .campos{
-    border-radius: 10px;
+    border-radius: 30px;
 }
 button{
-    border-radius: 10px;
+    border-radius: 30px;
     padding: 10px;
+    font-family: 'Roboto', sans-serif;
 }
 h1{
     font-family: 'Betania Patmos GDL', sans-serif;
+    text-align: center;
+    color: #ED1C24;
 }
