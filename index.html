@@ -3,21 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // 2. Inicialize com sua Public Key (User ID)
+            emailjs.init({
+              publicKey: "RHMjHBOiVn9PcSX62Txrc",
+            });
+        })();
+    </script>
     <title>Suporte Wilson</title>
 </head>
 <body>
-    <h1>Wilson</h1>
-    <form action="" method="post">
+    <h1>Wilson Suportes</h1>
+    <form id="contact-form">
         <label for="nome">Nome:</label>
-        <input type="text" id="nome" class="nome">
+        <input type="text" name="nome" class="nome">
+        <br>
 
-        <label for="">Email:</label>
-        <input type="text" id="email" class="email">
+        <label for="email">Email:</label>
+        <input type="text" name="email" class="email">
+        <br>
 
-        <label for="erro">Posso ajudalo com o que:</label>
-        <input type="text" id="erro" class="erro">
+        <label for="assunto">Assunto:</label>
+        <input type="text" name="assunto">
+        <br>
+
+        <label for="menssagem">Posso ajudalo com o que:</label>
+        <textarea name="menssagem" required></textarea>
+        <br>
 
         <button type="submit">Enviar</button>
-    </form>
+    </form>  
+    <script type="text/javascript">
+        const btn = document.getElementById('button');
+
+        document.getElementById('contact-form')
+        .addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            btn.value = 'Enviando...';
+
+            const serviceID = 'service_822u1bm';
+            const templateID = 'template_zljgvvq';
+
+            emailjs.sendForm(serviceID, templateID, this)
+            .then(() => {
+                btn.value = 'Enviar';
+                alert('Mensagem enviada com sucesso!');
+                this.reset();
+            }, (err) => {
+                btn.value = 'Enviar';
+                alert('Erro ao enviar: ' + JSON.stringify(err));
+            });
+        });
+    </script> 
 </body>
 </html>
