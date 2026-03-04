@@ -7,3 +7,10 @@ form{
     padding: 20px;
     border-radius: 10px;
 }
+.campos{
+    border-radius: 5px;
+}
+button{
+    border-radius: 5px;
+    padding: 10px;
+}
